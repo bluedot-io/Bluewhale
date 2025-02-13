@@ -1,7 +1,7 @@
 **Table Of Contents**
 
 [1 CREATING AN INSTANCE WITH BECHTLE-VSR AMI](#1-creating-an-instance-with-bechtle-vsr-ami)<br/>
-[1 TRY OUR SR SOLUTIONS](#2-try-our-sr-solution)<br/>
+[2 TRY OUR SR SOLUTIONS](#2-try-our-sr-solution)<br/>
 
 ---
 
