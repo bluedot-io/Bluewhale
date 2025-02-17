@@ -44,8 +44,13 @@ Then you can see the following messages:
                                                   contact@blue-dot.io
 
 #### HOWTO ####
-bluedot.sh /test-videos/input.mp4 /test-videos/result_x2.mp4 2
-bluedot.sh /test-videos/input.mp4 /test-videos/result_x3.mp4 3
+
+bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
+bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
+
+sample clips
+- 720p_sports.mp4
+- 720p_musicvideo.mp4
 ```
 
 # 2 Try our SR solution
@@ -53,18 +58,17 @@ bluedot.sh /test-videos/input.mp4 /test-videos/result_x3.mp4 3
 #### Using easy script(bluedot.sh).
 ```bash
 ### 2x SR #######
-bluedot.sh /test-videos/input.mp4 /test-videos/result_x2.mp4 2
+bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
 
 ### 3x SR #######
-bluedot.sh /test-videos/input.mp4 /test-videos/result_x3.mp4 3
+bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
 ```
 
 #### Using ffmpeg directly.
 ```bash
 ### 2x SR #######
-ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i /test-videos/input.mp4 -vf bdsr_aws=scale=2,scale=out_color_matrix=bt709 -pix_fmt yuv420p -colorspace bt709 -c:v libx264 /test-videos/resutl_x2.mp4
+ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo.mp4 -vf bdsr_aws=scale=2,scale=out_color_matrix=bt709 -pix_fmt yuv420p -colorspace bt709 -c:v libx264 resutl_x2.mp4
 
 ### 3x SR #######
-ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i /test-videos/input.mp4 -vf bdsr_aws=scale=3,scale=out_color_matrix=bt709 -pix_fmt yuv420p -colorspace bt709 -c:v libx264 /test-videos/resutl_x3.mp4
+ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo -vf bdsr_aws=scale=3,scale=out_color_matrix=bt709 -pix_fmt yuv420p -colorspace bt709 -c:v libx264 resutl_x3.mp4
 ```
-
