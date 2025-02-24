@@ -55,7 +55,7 @@ sample clips
 
 # 2 Try our SR solution
 
-#### Using easy script(bluedot.sh).
+### Using easy script(bluedot.sh).
 ```bash
 ### 2x SR #######
 bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
@@ -64,7 +64,19 @@ bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
 bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
 ```
 
-#### Using ffmpeg directly.
+#### Select GPU to use
+If using multi-GPU instances such as g4dn.12xlarge or g4dn.metal, you can specify which GPU to use.
+- CUDA_VISIBLE_DEVICES starts from 0, with a maximum value of the total number of GPUs minus 1.
+
+```bash
+### Use 1st GPU
+CUDA_VISIBLE_DEVICES=0 bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
+
+### Use 2nd GPU
+CUDA_VISIBLE_DEVICES=1 bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
+```
+
+### Using ffmpeg directly.
 ```bash
 ### 2x SR #######
 ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo.mp4 -vf bdsr_aws=scale=2,scale=out_color_matrix=bt709 -pix_fmt yuv420p -colorspace bt709 -c:v libx264 resutl_x2.mp4
@@ -72,3 +84,6 @@ ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_mu
 ### 3x SR #######
 ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo -vf bdsr_aws=scale=3,scale=out_color_matrix=bt709 -pix_fmt yuv420p -colorspace bt709 -c:v libx264 resutl_x3.mp4
 ```
+
+#### Select GPU to use
+Similar to the bluedot.sh script, you can also set CUDA_VISIBLE_DEVICES=X before executing ffmpeg commands to select a specific GPU.
