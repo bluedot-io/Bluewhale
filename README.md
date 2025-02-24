@@ -2,6 +2,7 @@
 
 [1 CREATING AN INSTANCE WITH BECHTLE-VSR AMI](#1-creating-an-instance-with-bechtle-vsr-ami)<br/>
 [2 TRY OUR SR SOLUTIONS](#2-try-our-sr-solution)<br/>
+[3 REFERENCES](#3-references)<br/>
 
 ---
 
@@ -87,3 +88,10 @@ ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_mu
 
 #### Select GPU to use
 Similar to the bluedot.sh script, you can also set CUDA_VISIBLE_DEVICES=X before executing ffmpeg commands to select a specific GPU.
+
+# 3 References
+## Using the terminal in VS Code
+Because the terminal in VS Code starts as a non-login shell, run the following command:
+```
+bash -l
+```
