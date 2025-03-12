@@ -65,6 +65,16 @@ bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
 bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
 ```
 
+#### note) Use Bechtle v3_nr(previous model)
+Bechtel v5 (latest model) is the default, but you can change by setting the model parameter. 
+```bash
+### 2x SR #######
+bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2 bechtle_v3_nr
+
+### 3x SR #######
+bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2 bechtle_v3_nr
+```
+
 #### Select GPU to use
 If using multi-GPU instances such as g4dn.12xlarge or g4dn.metal, you can specify which GPU to use.
 - CUDA_VISIBLE_DEVICES starts from 0, with a maximum value of the total number of GPUs minus 1.
