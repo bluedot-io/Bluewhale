@@ -123,7 +123,7 @@ Because the terminal in VS Code starts as a non-login shell, run the following c
 bash -l
 ```
 
-# 4 Live Use Cases for Bluewhale-VSR AMI with AWS Elemental
+# 4 Use Cases for Bluewhale-VSR AMI with AWS Elemental
 
 The Bluewhale-VSR AMI is a GPU-based AMI that performs real-time video quality enhancement for low-resolution videos, including upscaling and noise reduction. This document describes two representative live integration use cases within the AWS Elemental environment (MediaConnect, MediaLive, MediaConvert).
 
