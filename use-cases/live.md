@@ -14,7 +14,7 @@ Before you can use AWS Elemental MediaConnect, MediaLive, MediaPackage, you need
 
 ## Workflow
 
-### Step 1. Send a live stream with OBS
+### Step 1. Send a live stream with SRT-enabled live equipment
 
 You can use any live stream source, but in this example we use OBS Studio.
 
