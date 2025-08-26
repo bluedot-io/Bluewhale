@@ -1,20 +1,20 @@
 **Table Of Contents**
 
-[1 CREATING AN INSTANCE WITH BECHTLE-VSR AMI](#1-creating-an-instance-with-bechtle-vsr-ami)<br/>
+[1 CREATING AN INSTANCE WITH Bluewhale AMI](#1-creating-an-instance-with-Bluewhale-ami)<br/>
 [2 TRY OUR SR SOLUTIONS](#2-try-our-sr-solution)<br/>
 [3 REFERENCES](#3-references)<br/>
 [4 LIVE USE CASES FOR BLUEWHALE-VSR AMI WITH AWS ELEMENTAL](#4-live-use-cases-for-bluewhale-vsr-ami-with-aws-elemental)<br/>
 
 ---
 
-# 1 Creating an instance with Bechtle-VSR AMI
+# 1 Creating an instance with Bluewhale AMI
 
 ## PROCEDURE
 
 ### Step 1. Choose the AMI we shared
 
 - Click “Launch instance” in EC2 console
-- Type "Bechtle-VSR" in the search box and select it.
+- Type "Bluewhale" in the search box and select it.
 
 ### Step 2. Choose g4dn.2xlarge instance
 
@@ -41,21 +41,16 @@ ssh -i <private_key_path> ubuntu@<ip_address>
 Then you can see the following messages:
 
 ```
-
- ____  _____ ____ _   _ _____ _     _____   __     ______  ____
-| __ )| ____/ ___| | | |_   _| |   | ____|  \ \   / / ___||  _ \
-|  _ \|  _|| |   | |_| | | | | |   |  _| ____\ \ / /\___ \| |_) |
-| |_) | |__| |___|  _  | | | | |___| |__|_____\ V /  ___) |  _ <
-|____/|_____\____|_| |_| |_| |_____|_____|     \_/  |____/|_| \_\
-
-                                                  https://blue-dot.io
-                                                  contact@blue-dot.io
-
+██████  ██      ██    ██ ███████ ██     ██ ██   ██  █████  ██      ███████ 
+██   ██ ██      ██    ██ ██      ██     ██ ██   ██ ██   ██ ██      ██      
+██████  ██      ██    ██ █████   ██  █  ██ ███████ ███████ ██      █████   
+██   ██ ██      ██    ██ ██      ██ ███ ██ ██   ██ ██   ██ ██      ██      
+██████  ███████  ██████  ███████  ███ ███  ██   ██ ██   ██ ███████ ███████ 
+                                                     https://blue-dot.io
+                                                     contact@blue-dot.io
 #### HOWTO ####
-
 bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
 bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
-
 sample clips
 - 720p_sports.mp4
 - 720p_musicvideo.mp4
@@ -71,18 +66,6 @@ bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
 
 ### 3x SR #######
 bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
-```
-
-#### note) Use Bechtle v3_nr(previous model)
-
-Bechtel v5 (latest model) is the default, but you can change by setting the model parameter.
-
-```bash
-### 2x SR #######
-bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2 bechtle_v3_nr
-
-### 3x SR #######
-bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2 bechtle_v3_nr
 ```
 
 #### Select GPU to use
@@ -103,10 +86,10 @@ CUDA_VISIBLE_DEVICES=1 bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
 
 ```bash
 ### 2x SR #######
-ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo.mp4 -vf bdsr_aws=scale=2,scale=out_color_matrix=bt709 -pix_fmt yuv420p -colorspace bt709 -c:v libx264 resutl_x2.mp4
+ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo.mp4 -vf bdsr_aws=scale=2 -pix_fmt yuv420p -c:v libx264 resutl_x2.mp4
 
 ### 3x SR #######
-ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo -vf bdsr_aws=scale=3,scale=out_color_matrix=bt709 -pix_fmt yuv420p -colorspace bt709 -c:v libx264 resutl_x3.mp4
+ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo -vf bdsr_aws=scale=3 -pix_fmt yuv420p -c:v libx264 resutl_x3.mp4
 ```
 
 #### Select GPU to use
@@ -123,10 +106,10 @@ Because the terminal in VS Code starts as a non-login shell, run the following c
 bash -l
 ```
 
-# 4 Use Cases for Bluewhale-VSR AMI with AWS Elemental
+# 4 Use Cases for Bluewhale AMI with AWS Elemental
 
-The Bluewhale-VSR AMI is a GPU-based AMI that performs real-time video quality enhancement for low-resolution videos, including upscaling and noise reduction. This document describes two representative live integration use cases within the AWS Elemental environment (MediaConnect, MediaLive, MediaConvert).
+The Bluewhale AMI is a GPU-based AMI that performs real-time video quality enhancement for low-resolution videos, including upscaling and noise reduction. This document describes two representative live integration use cases within the AWS Elemental environment (MediaConnect, MediaLive, MediaConvert).
 
-### [Use case A : MediaConnect → Bluewhale-VSR → MediaLive](./use-cases/live.md)
+### [Use case A : MediaConnect → Bluewhale → MediaLive](./use-cases/live.md)
 
-### [Use case B : S3 → Bluewhale-VSR → MediaConvert](./use-cases/vod.md)
+### [Use case B : S3 → Bluewhale → MediaConvert](./use-cases/vod.md)
