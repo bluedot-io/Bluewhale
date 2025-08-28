@@ -14,12 +14,13 @@ Before you can use AWS Elemental MediaPackage and AWS S3, you need an AWS accoun
 
 ## Workflow
 
-### Step 1. Upload Source File
+### Step 1. Download source file from AWS S3
 
-Upload the orignal low-quality video to the designated AWS S3 input bucket.
+Download the original low-quality video from designated AWS S3 input bucket.
 
 ```bash
-aws s3 cp original_input.mp4 s3://<s3-input-bucktet-name>/original_input.mp4
+aws s3 cp s3://<s3-input-bucket-name>/original_input.mp4 ./
+download: s3://<s3-input-bucket-name>/original_input.mp4 to ./original_input.mp4
 ```
 
 ### Step 2. Run VSR Processing
@@ -35,7 +36,8 @@ ffmpeg -i original_input.mp4 -vf bdsr_aws=scale=2 -pix_fmt yuv420p -c:v libx264 
 Save the restored/upscaled video to the AWS S3 output bucket.
 
 ```bash
-aws s3 cp upscaled_x2.mp4 s3://<s3-output-bucktet-name>/upscaled_x2.mp4
+aws s3 cp upscaled_x2.mp4 s3://<s3-upscaled-bucket-name>/upscaled_x2.mp4
+upload: ./upscaled_x2.mp4 to s3://<s3-upscaled-bucket-name>/upscaled_x2.mp4
 ```
 
 ### Step 4. Create MediaConvert Job
@@ -67,7 +69,7 @@ aws s3 cp upscaled_x2.mp4 s3://<s3-output-bucktet-name>/upscaled_x2.mp4
 
 For detailed information on creating a MediaConvert job, see [Tutorial: Configuring job settings](https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-a-job.html).
 
-### Step 5. Verify Output
+### Step 5. Check results
 
 When the MediaConvert job is complete :
 
