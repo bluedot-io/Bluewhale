@@ -41,11 +41,11 @@ ssh -i <private_key_path> ubuntu@<ip_address>
 Then you can see the following messages:
 
 ```
-██████  ██      ██    ██ ███████ ██     ██ ██   ██  █████  ██      ███████ 
-██   ██ ██      ██    ██ ██      ██     ██ ██   ██ ██   ██ ██      ██      
-██████  ██      ██    ██ █████   ██  █  ██ ███████ ███████ ██      █████   
-██   ██ ██      ██    ██ ██      ██ ███ ██ ██   ██ ██   ██ ██      ██      
-██████  ███████  ██████  ███████  ███ ███  ██   ██ ██   ██ ███████ ███████ 
+██████  ██      ██    ██ ███████ ██     ██ ██   ██  █████  ██      ███████
+██   ██ ██      ██    ██ ██      ██     ██ ██   ██ ██   ██ ██      ██
+██████  ██      ██    ██ █████   ██  █  ██ ███████ ███████ ██      █████
+██   ██ ██      ██    ██ ██      ██ ███ ██ ██   ██ ██   ██ ██      ██
+██████  ███████  ██████  ███████  ███ ███  ██   ██ ██   ██ ███████ ███████
                                                      https://blue-dot.io
                                                      contact@blue-dot.io
 #### HOWTO ####
@@ -112,4 +112,4 @@ The Bluewhale AMI is a GPU-based AMI that performs real-time video quality enhan
 
 ### [Use case A : MediaConnect → Bluewhale → MediaLive](./use-cases/live.md)
 
-### [Use case B : S3 → Bluewhale → MediaConvert](./use-cases/vod.md)
+### [Use case B : Building an Automated VOD-SR System with the Bluewhale AMI](./use-cases/vod-sr.md)
