@@ -85,6 +85,9 @@ CUDA_VISIBLE_DEVICES=1 bluedot.sh 720p_musicvideo.mp4 result_x2.mp4
 ```bash
 ### 2x SR #######
 ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo.mp4 -vf bdsr_aws -pix_fmt yuv420p -c:v libx264 resutl_x2.mp4
+
+### 2x SR with denoising, preserving fine details in movies #######
+ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo.mp4 -vf bdnvx,bdsr_aws,noise=c0s=8:allf=t+u -pix_fmt yuv420p -c:v libx264 resutl_x2.mp4
 ```
 
 #### Select GPU to use
