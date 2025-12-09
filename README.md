@@ -49,8 +49,7 @@ Then you can see the following messages:
                                                      https://blue-dot.io
                                                      contact@blue-dot.io
 #### HOWTO ####
-bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
-bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
+bluedot.sh 720p_musicvideo.mp4 result_x2.mp4
 sample clips
 - 720p_sports.mp4
 - 720p_musicvideo.mp4
@@ -62,10 +61,7 @@ sample clips
 
 ```bash
 ### 2x SR #######
-bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
-
-### 3x SR #######
-bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
+bluedot.sh 720p_musicvideo.mp4 result_x2.mp4
 ```
 
 #### Select GPU to use
@@ -76,20 +72,17 @@ If using multi-GPU instances such as g4dn.12xlarge or g4dn.metal, you can specif
 
 ```bash
 ### Use 1st GPU
-CUDA_VISIBLE_DEVICES=0 bluedot.sh 720p_musicvideo.mp4 result_x2.mp4 2
+CUDA_VISIBLE_DEVICES=0 bluedot.sh 720p_musicvideo.mp4 result_x2.mp4
 
 ### Use 2nd GPU
-CUDA_VISIBLE_DEVICES=1 bluedot.sh 720p_musicvideo.mp4 result_x3.mp4 3
+CUDA_VISIBLE_DEVICES=1 bluedot.sh 720p_musicvideo.mp4 result_x2.mp4
 ```
 
 ### Using ffmpeg directly.
 
 ```bash
 ### 2x SR #######
-ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo.mp4 -vf bdsr_aws=scale=2 -pix_fmt yuv420p -c:v libx264 resutl_x2.mp4
-
-### 3x SR #######
-ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo -vf bdsr_aws=scale=3 -pix_fmt yuv420p -c:v libx264 resutl_x3.mp4
+ffmpeg -hide_banner -y -sws_flags spline+accurate_rnd+full_chroma_int -i 720p_musicvideo.mp4 -vf bdsr_aws -pix_fmt yuv420p -c:v libx264 resutl_x2.mp4
 ```
 
 #### Select GPU to use
